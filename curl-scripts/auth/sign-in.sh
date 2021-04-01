@@ -6,8 +6,8 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/sign-in" \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "abc@123.com",
-      "password": "123"
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'"
     }
   }'
 
