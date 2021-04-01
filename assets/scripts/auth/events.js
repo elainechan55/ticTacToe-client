@@ -12,7 +12,7 @@ const onSignUp = function () {
 
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
-    .catch(ui.onSignInError)
+    .catch(ui.onError)
 }
 
 module.exports = {
