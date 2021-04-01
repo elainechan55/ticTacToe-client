@@ -23,4 +23,4 @@ A user-based site for playing and tracking Tic-Tac-Toe matches.
     - This is done when the appropriate player's name shows as winner upon being in a winning state
 
 ### Wireframe
-![TicTacToe Wireframe](../assets/images/tictactoeWireframe.jpg)
+![TicTacToe Wireframe](/assets/images/tictactoeWireframe.jpg)
