@@ -1,8 +1,16 @@
 'use strict'
 
+const store = require('./store')
+
 const onSignUpSuccess = function () {
   console.log('signup success')
   $('#message').text('Sign up successful!')
+}
+
+const onSignInSuccess = function (response) {
+  store.user = response.user
+  console.log('signin success')
+  $('#message').text('Sign in successful!')
 }
 
 const onError = function () {
@@ -12,5 +20,6 @@ const onError = function () {
 
 module.exports = {
   onSignUpSuccess,
+  onSignInSuccess,
   onError
 }
