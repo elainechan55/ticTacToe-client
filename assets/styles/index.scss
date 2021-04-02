@@ -1,10 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
 
 // $ to store variables
+$body-bg-color: #ACDF87;
+$alt-color: #4C9A2A;
+$font-color: #1E5631;
+$box-bg-color: #68BB59;
 
+html, body {
+  background-color: $body-bg-color;
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  height: 50%;
+}
 .box {
+  color: $font-color;
+  background-color: $box-bg-color;
   align-items: center;
   border: 1px solid;
+  padding: 0;
   justify-content: center;
-  height: 80px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.game-board {
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: auto;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+p#message{
+  margin: auto;
+  text-align: center;
 }

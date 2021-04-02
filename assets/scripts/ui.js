@@ -5,18 +5,24 @@ const store = require('./store')
 const onSignUpSuccess = function () {
   console.log('signup success')
   $('#message').text('Sign up successful!')
+  $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
   store.user = response.user
   console.log('signin success')
   $('#message').text('Sign in successful!')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#sign-in').trigger('reset')
   $('#new-game').show()
+  $('#sign-out').show()
 }
 
 const onChangePasswordSuccess = function () {
   console.log('password change success')
   $('#message').text('Password change successful!')
+  $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = function () {
