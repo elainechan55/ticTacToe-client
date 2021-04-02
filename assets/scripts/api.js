@@ -30,6 +30,16 @@ const changePassword = function (formData) {
   })
 }
 
+const newGame = function () {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 const signOut = function () {
   return $.ajax({
     method: 'DELETE',
@@ -44,5 +54,6 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
+  newGame,
   signOut
 }

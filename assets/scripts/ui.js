@@ -11,6 +11,7 @@ const onSignInSuccess = function (response) {
   store.user = response.user
   console.log('signin success')
   $('#message').text('Sign in successful!')
+  $('#new-game').show()
 }
 
 const onChangePasswordSuccess = function () {
@@ -22,9 +23,21 @@ const onSignOutSuccess = function () {
   console.log('signout success')
   $('#message').text('Sign out successful')
   store.user = null
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 
-const onError = function () {
+const onNewGameSuccess = function (response) {
+  // store responses in currentGame property
+  // .game bc from POST
+  store.currentGame = response.game
+  $('.game-board').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#message').text('X, make a move')
+}
+
+const onError = function (response) {
   console.log('there was an error')
   $('#message').text('There was an error, please try again.')
 }
@@ -34,5 +47,6 @@ module.exports = {
   onSignInSuccess,
   onChangePasswordSuccess,
   onSignOutSuccess,
+  onNewGameSuccess,
   onError
 }

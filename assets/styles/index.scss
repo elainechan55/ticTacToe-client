@@ -1,1 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
+
+// $ to store variables
+
+.box {
+  align-items: center;
+  border: 1px solid;
+  justify-content: center;
+  height: 80px;
+}
