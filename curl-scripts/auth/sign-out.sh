@@ -1,4 +1,4 @@
-# VARIABLE=VALUE sh curl-scripts/auth/change-password.sh
+# VARIABLE=VALUE sh curl-scripts/auth/sign-out.sh
 
 curl "https://tic-tac-toe-api-development.herokuapp.com/sign-out" \
   --include \
