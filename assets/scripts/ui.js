@@ -43,6 +43,15 @@ const onNewGameSuccess = function (response) {
   $('#message').text('X, make a move')
 }
 
+const onPlayerMoveSuccess = function (response) {
+  console.log(response + ' response')
+  $('#message').text(`${store.nextTurn}, make a move`)
+}
+
+const onPlayerMoveError = function (response) {
+  $('#message').text('Invalid space chosen, choose another.')
+}
+
 const onError = function (response) {
   console.log('there was an error')
   $('#message').text('There was an error, please try again.')
@@ -54,5 +63,7 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onNewGameSuccess,
+  onPlayerMoveSuccess,
+  onPlayerMoveError,
   onError
 }

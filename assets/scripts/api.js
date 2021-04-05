@@ -50,10 +50,30 @@ const signOut = function () {
   })
 }
 
+const playerMove = function (index, value, over) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + `/games/${store.currentGame._id}`,
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: over
+      }
+    },
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   newGame,
-  signOut
+  signOut,
+  playerMove
 }

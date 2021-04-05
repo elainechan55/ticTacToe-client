@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -53,10 +54,29 @@ const onSignOut = function (event) {
     .catch(ui.onError)
 }
 
+const onPlayerMove = function (event) {
+  event.preventDefault()
+
+  const gameIndex = event.target.getAttribute('data-cell-index')
+  console.log('gameIndex ' + gameIndex)
+
+  if (store.currentGame.cells[gameIndex] === '') {
+    // TODO: alternate x and o (if statement in this `if` statement)
+    store.currentGame.cells[gameIndex] = store.nextTurn
+    event.target.innerText = store.nextTurn
+    store.changeTurn()
+    api.playerMove(gameIndex, store.nextTurn, false)
+      .then(ui.onPlayerMoveSuccess)
+  } else {
+    ui.onPlayerMoveError()
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onNewGame,
-  onSignOut
+  onSignOut,
+  onPlayerMove
 }

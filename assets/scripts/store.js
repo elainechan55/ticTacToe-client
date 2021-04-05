@@ -13,6 +13,14 @@ currentGame = {
 }
 */
 const store = {
+  nextTurn: 'X', // works for new games. need to refactor: x and o count
+  changeTurn: function () {
+    if (this.nextTurn === 'X') {
+      this.nextTurn = 'O'
+    } else {
+      this.nextTurn = 'X'
+    }
+  }
 }
 
 module.exports = store
