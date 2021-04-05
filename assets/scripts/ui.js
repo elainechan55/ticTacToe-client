@@ -43,13 +43,16 @@ const onNewGameSuccess = function (response) {
   $('#message').text('X, make a move')
 }
 
-const onPlayerMoveSuccess = function (response) {
-  console.log(response + ' response')
+const promptNextTurn = function () {
   $('#message').text(`${store.nextTurn}, make a move`)
 }
 
 const onPlayerMoveError = function (response) {
   $('#message').text('Invalid space chosen, choose another.')
+}
+
+const onSetWinner = function (winner) {
+  $('#message').text(`${winner} is the winner!`)
 }
 
 const onError = function (response) {
@@ -63,7 +66,8 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onNewGameSuccess,
-  onPlayerMoveSuccess,
+  promptNextTurn,
   onPlayerMoveError,
+  onSetWinner,
   onError
 }
