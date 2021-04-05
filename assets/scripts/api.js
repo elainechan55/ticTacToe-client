@@ -30,20 +30,20 @@ const changePassword = function (formData) {
   })
 }
 
-const newGame = function () {
+const signOut = function () {
   return $.ajax({
-    method: 'POST',
-    url: config.apiUrl + '/games',
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
-const signOut = function () {
+const newGame = function () {
   return $.ajax({
-    method: 'DELETE',
-    url: config.apiUrl + '/sign-out',
+    method: 'POST',
+    url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }

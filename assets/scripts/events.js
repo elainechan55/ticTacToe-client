@@ -61,12 +61,23 @@ const onPlayerMove = function (event) {
   console.log('gameIndex ' + gameIndex)
 
   if (store.currentGame.cells[gameIndex] === '') {
-    // TODO: alternate x and o (if statement in this `if` statement)
     store.currentGame.cells[gameIndex] = store.nextTurn
     event.target.innerText = store.nextTurn
-    store.changeTurn()
-    api.playerMove(gameIndex, store.nextTurn, false)
-      .then(ui.onPlayerMoveSuccess)
+
+    let over = false
+    // has true value
+    const isGameOver = store.isGameOver()
+    if (isGameOver) {
+      over = true
+      ui.onSetWinner(store.nextTurn)
+    }
+
+    api.playerMove(gameIndex, store.nextTurn, over)
+
+    if (!isGameOver) {
+      store.changeTurn()
+      ui.promptNextTurn()
+    }
   } else {
     ui.onPlayerMoveError()
   }
