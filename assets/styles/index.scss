@@ -8,30 +8,49 @@ $box-bg-color: #68BB59;
 
 html, body {
   background-color: $body-bg-color;
-  height: 100%;
-  width: 100%;
-}
-
-.row {
-  height: 50%;
-}
-.box {
-  color: $font-color;
-  background-color: $box-bg-color;
-  align-items: center;
-  border: 1px solid;
-  padding: 0;
-  justify-content: center;
-  display: flex;
-  width: 100%;
-  height: 100%;
 }
 
 .game-board {
+  // game-board set to scale to entire height
+  height: 100vh;
   width: 50%;
-  height: 50%;
-  justify-content: center;
   margin: auto;
+}
+
+.board {
+  // set max size of board to be 100% of viewport's height - 75px
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
+}
+
+.box {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  color: $font-color;
+  background-color: $box-bg-color;
+  display: flex;
+  // markers centered on main axis
+  justify-content: center;
+  // markers centered on cross axis
+  align-items: center;
+  color: white;
+  font-size: 12vh;
+  // add shadow 2px below and to the right
+  text-shadow: 2px 2px rgba(0, 0, 0, .25);
+  min-height: calc(100% / 3);
+  // make sure user cannot select text when clicked on
+  user-select: none;
+  // select the 3 right boxes (3n - every 3rd box)
+  &:nth-child(3n) {
+    border-right: 0;
+  };
+  // (-1n + 3) selects last 3 elements
+  &:nth-last-child(-1n + 3) {
+    border-bottom: 0;
+  }
+  &:hover {
+    background-color: LightSkyBlue;
+  }
 }
 
 .alt-color {
