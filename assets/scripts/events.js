@@ -57,6 +57,10 @@ const onSignOut = function (event) {
 const onPlayerMove = function (event) {
   event.preventDefault()
 
+  if (store.currentGame.over === true) {
+    return
+  }
+
   const gameIndex = event.target.getAttribute('data-cell-index')
   console.log('gameIndex ' + gameIndex)
 
@@ -64,17 +68,22 @@ const onPlayerMove = function (event) {
     store.currentGame.cells[gameIndex] = store.nextTurn
     event.target.innerText = store.nextTurn
 
-    let over = false
+    // let over = false
     // has true value
-    const isGameOver = store.isGameOver()
-    if (isGameOver) {
-      over = true
+    const isThereAWinner = store.isThereAWinner()
+    const isBoardFull = store.currentGame.cells.every(element => element !== '')
+    if (isThereAWinner) {
+      store.currentGame.over = true
       ui.onSetWinner(store.nextTurn)
+    } else if (isBoardFull) {
+      store.currentGame.over = true
+      ui.onSetTie()
     }
 
-    api.playerMove(gameIndex, store.nextTurn, over)
+    api.playerMove(gameIndex, store.nextTurn, store.currentGame.over)
 
-    if (!isGameOver) {
+    // if (!isThereAWinner && !isBoardFull) {
+    if (store.currentGame.over === false) {
       store.changeTurn()
       ui.promptNextTurn()
     }

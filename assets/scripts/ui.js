@@ -56,6 +56,10 @@ const onSetWinner = function (winner) {
   $('#message').text(`${winner} is the winner!`)
 }
 
+const onSetTie = function () {
+  $('#message').text('It\'s a tie!')
+}
+
 const onError = function (response) {
   console.log('there was an error')
   $('#message').text('There was an error, please try again.')
@@ -70,5 +74,6 @@ module.exports = {
   promptNextTurn,
   onPlayerMoveError,
   onSetWinner,
+  onSetTie,
   onError
 }

@@ -34,7 +34,7 @@ const store = {
     }
   },
   // given true or false
-  isGameOver: function () {
+  isThereAWinner: function () {
     return checkLine(0, 1, 2) ||
       checkLine(3, 4, 5) ||
       checkLine(6, 7, 8) ||
