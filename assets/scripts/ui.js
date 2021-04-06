@@ -37,6 +37,7 @@ const onNewGameSuccess = function (response) {
   // store responses in currentGame property
   // .game bc from POST
   store.currentGame = response.game
+  $('.game-board').trigger('reset')
   $('.game-board').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
