@@ -12,31 +12,39 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
 
-      <p id="message"></p>
-      <form id="sign-up">
-        <h3>Sign-up</h3>
-        <input name="credentials[email]" type="email" placeholder="Enter email" required>
-        <input name="credentials[password]" type="password" placeholder="Enter password" required>
-        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required>
-        <button>Sign Up</button>
-      </form>
+      <header>
+        <h1 id="title">Tic Tac Toe</h1>
+        <p id="message"></p>
+        <fieldset class="initial-forms">
+          <form id="sign-up">
+            <legend>Sign-up</legend>
+            <table>
+              <tr><td class="right-align">Email</td><td><input name="credentials[email]" type="email" required></td></tr>
+              <tr><td class="right-align">Password</td><td><input name="credentials[password]" type="password" required></td></tr>
+              <tr><td class="right-align">Confirm password</td><td><input name="credentials[password_confirmation]" type="password" required></td></tr>
+              <tr><td><button class="initial-forms-buttons">Sign Up</button></td></tr>
+            </table>
+          </form>
 
-      <form id='sign-in'>
-        <h3>Sign-in</h3>
-        <input name="credentials[email]" type="email" placeholder="Enter email" required>
-        <input name="credentials[password]" type="password" placeholder="Enter password" required>
-        <button>Sign In</button>
-      </form>
-
-      <form id='change-password'>
-        <h3>Change password</h3>
-        <input name="passwords[old]" type="password" placeholder="Enter old password" required>
-        <input name="passwords[new]" type="password" placeholder="Enter new password" required>
-        <button>Change Password</button>
-      </form>
-
+          <form id='sign-in'>
+            <legend>Sign-in</legend>
+            <table>
+              <tr><td class="right-align">Email</td><td><input name="credentials[email]" type="email" required>
+              <tr><td class="right-align">Password</td><td><input name="credentials[password]" type="password" required>
+              <tr><td><button class="initial-forms-buttons">Sign In</button>
+            </table>
+          </form>
+        </fieldset>
+        <div class="secondary-forms">
+          <form id='change-password'>
+            <h3>Change password</h3>
+            <input name="passwords[old]" type="password" placeholder="Enter old password" required>
+            <input name="passwords[new]" type="password" placeholder="Enter new password" required>
+            <button>Change Password</button>
+          </form>
+        </div>
+      </header>
       <button id="sign-out">Sign Out</button>
 
       <button id="new-game">New Game</button>

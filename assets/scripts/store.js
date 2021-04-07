@@ -33,7 +33,7 @@ const store = {
       this.nextTurn = 'X'
     }
   },
-  // function to check board for any line of same mark (check for a line on board)
+  // function to check for any line on board of same mark
   isThereAWinner: function () {
     // in a row
     return checkLine(0, 1, 2) ||

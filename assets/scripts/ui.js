@@ -17,6 +17,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#new-game').show()
   $('#sign-out').show()
+  $('#change-password').show()
 }
 
 const onChangePasswordSuccess = function () {
