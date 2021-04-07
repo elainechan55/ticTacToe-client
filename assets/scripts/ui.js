@@ -35,13 +35,15 @@ const onSignOutSuccess = function () {
 
 const onNewGameSuccess = function (response) {
   // store responses in currentGame property
-  // .game bc from POST
+  // .game bc from POST API response
   store.currentGame = response.game
-  $('.game-board').trigger('reset')
+  store.nextTurn = 'X'
   $('.game-board').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#message').text('X, make a move')
+  // find game board cells and clear
+  $('.col-4').empty()
 }
 
 const promptNextTurn = function () {

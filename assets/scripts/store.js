@@ -25,7 +25,7 @@
 }
 */
 const store = {
-  nextTurn: 'X', // works for new games. TODO: refactor: x and o count
+  nextTurn: 'X', // works for new games. TODO: x and o count (game in progress)
   changeTurn: function () {
     if (this.nextTurn === 'X') {
       this.nextTurn = 'O'
@@ -33,19 +33,23 @@ const store = {
       this.nextTurn = 'X'
     }
   },
-  // given true or false
+  // function to check board for any line of same mark (check for a line on board)
   isThereAWinner: function () {
+    // in a row
     return checkLine(0, 1, 2) ||
       checkLine(3, 4, 5) ||
       checkLine(6, 7, 8) ||
+      // in a column
       checkLine(0, 3, 6) ||
       checkLine(1, 4, 7) ||
       checkLine(2, 5, 8) ||
+      // in diagonal
       checkLine(0, 4, 8) ||
       checkLine(2, 4, 6)
   }
 }
 
+// function to check three indices of same mark
 function checkLine (ind1, ind2, ind3) {
   console.log(store.currentGame.cells[ind1])
   if (store.currentGame.cells[ind1] === 'X' &&
