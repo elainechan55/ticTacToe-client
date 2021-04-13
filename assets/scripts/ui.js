@@ -27,9 +27,13 @@ const onChangePasswordSuccess = function () {
 }
 
 const onSignOutSuccess = function () {
+  store.user = null
   console.log('signout success')
   $('#message').text('Sign out successful')
-  store.user = null
+  $('.game-board').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#new-game').hide()
   $('#sign-up').show()
   $('#sign-in').show()
 }
