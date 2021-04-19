@@ -1,11 +1,8 @@
 # Tic-Tac-Toe Game Website
-A user-based site for playing and tracking Tic-Tac-Toe matches.
-
-<using html, css, js, jquery, bootstrap>
-
-!!! maybe add more description here
+A user-based site for playing Tic-Tac-Toe matches utilizing AJAX API calls for tracking user accounts and games.
 
 ## Important Links
+![ticTacToe-client](https://elainechan55.github.io/ticTacToe-client/)
 
 ## Planning
 

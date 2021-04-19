@@ -12,17 +12,34 @@ html, body {
 
 input {
   border: 1px solid;
-
 }
 
 .initial-forms {
   flex-direction: column;
   align-items: stretch;
+  margin: auto;
+  margin-top: 15vh;
+  width: 350px;
+  height: inherent;
+  border: 1px solid DarkGreen;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.initial-forms-buttons {
+  margin-left: 93px;
+  margin-top: 8px;
+  width: 80px;
+  margin-bottom: 8px;
 }
 
 .right-align {
   padding-left: 5px;
   padding-right: 10px;
+}
+
+.secondary-forms {
+  float: right;
 }
 
 .game-board {
@@ -32,14 +49,14 @@ input {
   margin: auto;
 }
 
-td {
+td:first-child {
   width: 25vh;
 }
 
 .board {
   // set max size of board to be 100% of viewport's height - 75px
-  max-height: calc(100vh - 75px);
-  max-width: calc(100vh - 75px);
+  max-height: calc(80vh - 75px);
+  max-width: calc(80vw - 75px);
 }
 
 .box {
@@ -82,5 +99,18 @@ p#message{
 }
 
 #title {
-  text-align: center;
+  padding-left: 80px;
+  font-family: 'Permanent Marker';
+  font-size: 80px;
+  // margin: auto;
+}
+
+#new-game {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  #title {
+    font-size: 50px;
+  }
 }

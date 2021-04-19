@@ -27,6 +27,11 @@ const onSignIn = function (event) {
     .catch(ui.onError)
 }
 
+const onChangePasswordClick = function (event) {
+  event.stopPropagation()
+  ui.onChangePasswordClick()
+}
+
 const onChangePassword = function (event) {
   event.preventDefault()
 
@@ -98,5 +103,6 @@ module.exports = {
   onChangePassword,
   onNewGame,
   onSignOut,
-  onPlayerMove
+  onPlayerMove,
+  onChangePasswordClick
 }
