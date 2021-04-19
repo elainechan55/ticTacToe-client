@@ -12,11 +12,14 @@ const onSignInSuccess = function (response) {
   store.user = response.user
   console.log('signin success')
   $('#message').text('Sign in successful!')
-  $('#sign-up').hide()
-  $('#sign-in').hide()
   $('#sign-in').trigger('reset')
+  $('.initial-forms').hide()
+  $('#settings').css('visibility', 'visible')
   $('#new-game').show()
   $('#sign-out').show()
+}
+
+const onChangePasswordClick = function () {
   $('#change-password').show()
 }
 
@@ -24,14 +27,16 @@ const onChangePasswordSuccess = function () {
   console.log('password change success')
   $('#message').text('Password change successful!')
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
 }
 
 const onSignOutSuccess = function () {
   console.log('signout success')
   $('#message').text('Sign out successful')
   store.user = null
-  $('#sign-up').show()
-  $('#sign-in').show()
+  $('.game-board').hide()
+  $('.initial-forms').show()
+  $('#new-game').hide()
 }
 
 const onNewGameSuccess = function (response) {
@@ -40,8 +45,6 @@ const onNewGameSuccess = function (response) {
   store.currentGame = response.game
   store.nextTurn = 'X'
   $('.game-board').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
   $('#message').text('X, make a move')
   // find game board cells and clear
   $('.col-4').empty()
@@ -71,6 +74,7 @@ const onError = function (response) {
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
+  onChangePasswordClick,
   onChangePasswordSuccess,
   onSignOutSuccess,
   onNewGameSuccess,
