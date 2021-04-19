@@ -37,6 +37,7 @@ const onSignOutSuccess = function () {
   $('.game-board').hide()
   $('.initial-forms').show()
   $('#new-game').hide()
+  $('#settings').css('visibility', 'hidden')
 }
 
 const onNewGameSuccess = function (response) {
